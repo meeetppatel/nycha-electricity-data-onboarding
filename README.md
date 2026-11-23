@@ -11,7 +11,7 @@ A self-directed work sample on public data. I treated the NYC Housing Authority 
 | **Biggest issue** | 14.6% of kWh comes from estimated meter reads; 149 meters were estimated on every 2024 bill |
 | **Built with** | Excel Power Query (Group By, Merge, custom columns, parameter), COUNTIFS / SUMIFS |
 
-**Start here:** [customer memo (PDF)](docs/NYCHA_CY2024_customer_memo.pdf) · **Workbook:** [download from Releases](../../releases/latest) · **Power Query code:** [`queries/`](queries/) · **Source data:** [NYC Open Data jr24-e7cr](https://catalog.data.gov/dataset/electric-consumption-and-cost-2010-may-2025)
+**Start here:** [customer memo (PDF)](docs/NYCHA_CY2024_customer_memo.pdf) · **Workbook:** [download (21 MB)](workbook/NYCHA_electricity_CY2024_work_sample.xlsx) · **Power Query code:** [`queries/`](queries/) · **Source data:** [NYC Open Data jr24-e7cr](https://catalog.data.gov/dataset/electric-consumption-and-cost-2010-may-2025)
 
 ---
 
@@ -113,10 +113,11 @@ docs/NYCHA_CY2024_customer_memo.pdf   customer-facing memo (start here)
 queries/*.pq                          Power Query M for all five queries
 scripts/nycha_profile.py              profiling script: tie-out, grain, issue sizes, monthly calendarization
 screenshots/                          Power Query steps, reconciliation checks, issues log
+workbook/                             the Excel workbook (21 MB; open in Excel desktop to see Power Query)
 data/README.md                        how to pull the source data (CSV not committed)
 ```
 
-The workbook (21 MB) is attached to the [latest release](../../releases/latest).
+The workbook is in [`workbook/`](workbook/). GitHub can't preview it: click it, then **Download raw file**, and open it in Excel desktop to see the Power Query steps.
 
 ---
 
