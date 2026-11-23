@@ -1,0 +1,5 @@
+# raw data and large binaries (workbook is attached to a GitHub Release)
+data/*.csv
+*.xlsx
+.DS_Store
+__pycache__/
