@@ -52,6 +52,8 @@ Load & type  ->  Find the grain  ->  Flag issues  ->  Clean  ->  Calendarize  ->
 | 8 | Site names and borough change between bills | 122 meters renamed (5.5% of kWh); 2,510 rows with a conflicting borough | One site key per meter (RC code), one name and borough per site |
 | 9 | Excel errors exported as data | 2,686 rows with `#REF!` / `#N/A` in `amp` | Kept as text, raised as an export fix |
 
+![Issues log](screenshots/04_issues_log.png)
+
 **Plot twist:** calendarizing barely moves the annual total (+0.34% vs grouping by revenue month), but it moves up to 13.2M kWh between months. May is 17.7% higher once bills are split by days. Annual reports would never notice; monthly or quarterly reports would be wrong.
 
 ## Reconciliation
@@ -66,6 +68,8 @@ Load & type  ->  Find the grain  ->  Flag issues  ->  Clean  ->  Calendarize  ->
 
 Every check cell in the workbook reads 0: expected vs calendarized totals, raw calendarization vs prorated formulas, and clean activity vs kept plus filled rows.
 
+![Reconciliation tab with check cells at 0](screenshots/03_reconciliation_checks.png)
+
 ## Power Query
 
 | Query | What it does |
@@ -75,6 +79,10 @@ Every check cell in the workbook reads 0: expected vs calendarized totals, raw c
 | [`Clean_Activity`](queries/01_Clean_Activity.pq) | Reads the clean activity table and types the period columns |
 | [`ReportYear`](queries/02_ReportYear.pq) | Parameter for the reporting year |
 | [`Calendarized_2024`](queries/03_Calendarized_2024.pq) | Expands each bill into the months it touches, prorates kWh and cost by days, groups by site and month |
+
+![Raw_flagged query with its Applied Steps](screenshots/01_power_query_raw_flagged.png)
+
+![Merge dialog: 51,854 of 51,854 rows matched](screenshots/02_power_query_merge.png)
 
 **Checks:** the Power Query flags match on all 51,854 rows (17,900 demand-only, 223 kWh missing, 7,017 estimated, 216 duplicate rows; 0 rows differ), and `Calendarized_2024` matches the Reconciliation totals.
 
